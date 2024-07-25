@@ -1,0 +1,33 @@
+# ManualBet
+
+**Properties**
+
+| Name           | Type               | Required | Description                                                                                                                                                                                                                                                                          |
+| :------------- | :----------------- | :------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| BetId          | long               | ✅       | Bet identification                                                                                                                                                                                                                                                                   |
+| WagerNumber    | long               | ✅       | Wager identification. All bets placed thru the API will have value 1. Website Classic view supports multiple contest(special) bets placement in the same bet slip in that case the bet would have appropriate wager number, as well as all round robin parlay bets.                  |
+| PlacedAt       | string             | ✅       | Date time when the bet was placed.                                                                                                                                                                                                                                                   |
+| BetStatus      | ManualBetBetStatus | ✅       | Bet Status. ACCEPTED = Bet was accepted, CANCELLED = Bet is cancelled as per Pinnacle betting rules, LOSE = The bet is settled as lose, REFUNDED = When an event is cancelled or when the bet is settled as push, the bet will have REFUNDED status, WON = The bet is settled as won |
+| BetType        | string             | ✅       |                                                                                                                                                                                                                                                                                      |
+| Win            | double             | ✅       | Win amount.                                                                                                                                                                                                                                                                          |
+| Risk           | double             | ✅       | Risk amount.                                                                                                                                                                                                                                                                         |
+| UpdateSequence | long               | ✅       | Update Sequence                                                                                                                                                                                                                                                                      |
+| Description    | string             | ✅       | Manual bet description.                                                                                                                                                                                                                                                              |
+| WinLoss        | double             | ❌       | Win-Loss for settled bets.                                                                                                                                                                                                                                                           |
+| ReferenceBetId | long               | ❌       | Referenced original bet id.                                                                                                                                                                                                                                                          |
+
+# ManualBetBetStatus
+
+Bet Status. ACCEPTED = Bet was accepted, CANCELLED = Bet is cancelled as per Pinnacle betting rules, LOSE = The bet is settled as lose, REFUNDED = When an event is cancelled or when the bet is settled as push, the bet will have REFUNDED status, WON = The bet is settled as won
+
+**Properties**
+
+| Name      | Type   | Required | Description |
+| :-------- | :----- | :------- | :---------- |
+| Accepted  | string | ✅       | "ACCEPTED"  |
+| Cancelled | string | ✅       | "CANCELLED" |
+| Lose      | string | ✅       | "LOSE"      |
+| Refunded  | string | ✅       | "REFUNDED"  |
+| Won       | string | ✅       | "WON"       |
+
+<!-- This file was generated by liblab | https://liblab.com/ -->
