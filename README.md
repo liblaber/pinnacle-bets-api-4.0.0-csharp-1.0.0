@@ -41,7 +41,7 @@ dotnet add package PinnacleBets
 
 ### Basic Authentication
 
-The pinnacle_bets API uses Basic Authentication.
+The PinnacleBets API uses Basic Authentication.
 
 You need to provide your username and password when initializing the SDK.
 
@@ -88,15 +88,73 @@ BasicAuth = basicAuthConfig
 var client = new PinnacleBetsClient(config);
 
 var betStatuses = new List<BetStatuses>() { BetStatuses.Won };
-var betids = new List<long>() { 7 };
+var betids = new List<long>() { 9 };
 var uniqueRequestIds = new List<string>() { "uniqueRequestIds" };
 var betType = new List<BetsGetBetsByTypeV4BetType>() { BetsGetBetsByTypeV4BetType.Spread };
 
-var response = await client.GetBets.BetsGetBetsByTypeV4Async(Betlist.Settled, betStatuses, "fromDate", "toDate", SortDir.Asc, 1000, 8, betids, uniqueRequestIds, betType);
+var response = await client.GetBets.BetsGetBetsByTypeV4Async(Betlist.Settled, betStatuses, "fromDate", "toDate", SortDir.Asc, 1000, 0, betids, uniqueRequestIds, betType);
 
 Console.WriteLine(response);
 
 ```
+
+## Services
+
+The SDK provides various services to interact with the API.
+
+<details> 
+<summary>Below is a list of all available services with links to their detailed documentation:</summary>
+
+| Name                                                                   |
+| :--------------------------------------------------------------------- |
+| [PlaceBetsService](documentation/services/PlaceBetsService.md)         |
+| [GetBetsService](documentation/services/GetBetsService.md)             |
+| [BettingStatusService](documentation/services/BettingStatusService.md) |
+
+</details>
+
+## Models
+
+The SDK includes several models that represent the data structures used in API requests and responses. These models help in organizing and managing the data efficiently.
+
+<details> 
+<summary>Below is a list of all available models with links to their detailed documentation:</summary>
+
+| Name                                                                                             | Description                                                                                                                                                                                                                                                                                     |
+| :----------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [PlaceBetRequest](documentation/models/PlaceBetRequest.md)                                       | Request to place a bet.                                                                                                                                                                                                                                                                         |
+| [PlaceStraightBetResponse](documentation/models/PlaceStraightBetResponse.md)                     |                                                                                                                                                                                                                                                                                                 |
+| [PlaceParlayBetRequest](documentation/models/PlaceParlayBetRequest.md)                           | Request to place a bet                                                                                                                                                                                                                                                                          |
+| [PlaceParlayBetResponse](documentation/models/PlaceParlayBetResponse.md)                         |                                                                                                                                                                                                                                                                                                 |
+| [PlaceTeaserBetRequest](documentation/models/PlaceTeaserBetRequest.md)                           |                                                                                                                                                                                                                                                                                                 |
+| [PlaceTeaserBetResponse](documentation/models/PlaceTeaserBetResponse.md)                         |                                                                                                                                                                                                                                                                                                 |
+| [MultiBetRequestSpecialBetRequest](documentation/models/MultiBetRequestSpecialBetRequest.md)     |                                                                                                                                                                                                                                                                                                 |
+| [MultiBetResponseSpecialBetResponse](documentation/models/MultiBetResponseSpecialBetResponse.md) |                                                                                                                                                                                                                                                                                                 |
+| [GetBetsByTypeResponseV4](documentation/models/GetBetsByTypeResponseV4.md)                       |                                                                                                                                                                                                                                                                                                 |
+| [Betlist](documentation/models/Betlist.md)                                                       |                                                                                                                                                                                                                                                                                                 |
+| [BetStatuses](documentation/models/BetStatuses.md)                                               |                                                                                                                                                                                                                                                                                                 |
+| [SortDir](documentation/models/SortDir.md)                                                       |                                                                                                                                                                                                                                                                                                 |
+| [BetsGetBetsByTypeV4BetType](documentation/models/BetsGetBetsByTypeV4BetType.md)                 |                                                                                                                                                                                                                                                                                                 |
+| [BettingStatusResponse](documentation/models/BettingStatusResponse.md)                           |                                                                                                                                                                                                                                                                                                 |
+| [OddsFormat](documentation/models/OddsFormat.md)                                                 | Bet odds format. AMERICAN = American odds format, DECIMAL = Decimal (European) odds format, HONGKONG = Hong Kong odds format, INDONESIAN = Indonesian odds format, MALAY = Malaysian odds format                                                                                                |
+| [ParlayLegRequest](documentation/models/ParlayLegRequest.md)                                     |                                                                                                                                                                                                                                                                                                 |
+| [RoundRobinOptionWithOdds](documentation/models/RoundRobinOptionWithOdds.md)                     |                                                                                                                                                                                                                                                                                                 |
+| [ParlayLegResponse](documentation/models/ParlayLegResponse.md)                                   |                                                                                                                                                                                                                                                                                                 |
+| [TeaserBetLeg](documentation/models/TeaserBetLeg.md)                                             |                                                                                                                                                                                                                                                                                                 |
+| [PlaceTeaserBetLegResponse](documentation/models/PlaceTeaserBetLegResponse.md)                   |                                                                                                                                                                                                                                                                                                 |
+| [SpecialBetRequest](documentation/models/SpecialBetRequest.md)                                   |                                                                                                                                                                                                                                                                                                 |
+| [SpecialBetResponse](documentation/models/SpecialBetResponse.md)                                 |                                                                                                                                                                                                                                                                                                 |
+| [StraightBetV4](documentation/models/StraightBetV4.md)                                           |                                                                                                                                                                                                                                                                                                 |
+| [ParlayBet](documentation/models/ParlayBet.md)                                                   |                                                                                                                                                                                                                                                                                                 |
+| [TeaserBet](documentation/models/TeaserBet.md)                                                   |                                                                                                                                                                                                                                                                                                 |
+| [SpecialBet](documentation/models/SpecialBet.md)                                                 |                                                                                                                                                                                                                                                                                                 |
+| [ManualBet](documentation/models/ManualBet.md)                                                   |                                                                                                                                                                                                                                                                                                 |
+| [CancellationReason](documentation/models/CancellationReason.md)                                 | Possible keys \: _ correctTeam1Id _ correctTeam2Id _ correctListedPitcher1 _ correctListedPitcher2 _ correctSpread _ correctTotalPoints _ correctTeam1TotalPoints _ correctTeam2TotalPoints _ correctTeam1Score _ correctTeam2Score _ correctTeam1TennisSetsScore _ correctTeam2TennisSetsScore |
+| [CancellationDetailsItem](documentation/models/CancellationDetailsItem.md)                       |                                                                                                                                                                                                                                                                                                 |
+| [ParlayLeg](documentation/models/ParlayLeg.md)                                                   |                                                                                                                                                                                                                                                                                                 |
+| [TeaserLeg](documentation/models/TeaserLeg.md)                                                   |                                                                                                                                                                                                                                                                                                 |
+
+</details>
 
 ## License
 

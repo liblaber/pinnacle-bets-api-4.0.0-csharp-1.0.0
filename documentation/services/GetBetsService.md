@@ -40,12 +40,12 @@ using PinnacleBets.Models;
 
 var client = new PinnacleBetsClient();
 
-var betStatuses = new List`<BetStatuses>`() { BetStatuses.Won };
-var betids = new List`<long>`() { 7 };
-var uniqueRequestIds = new List`<string>`() { "uniqueRequestIds" };
-var betType = new List`<BetsGetBetsByTypeV4BetType>`() { BetsGetBetsByTypeV4BetType.Spread };
+var betStatuses = new List<BetStatuses>() { BetStatuses.Won };
+var betids = new List<long>() { 9 };
+var uniqueRequestIds = new List<string>() { "uniqueRequestIds" };
+var betType = new List<BetsGetBetsByTypeV4BetType>() { BetsGetBetsByTypeV4BetType.Spread };
 
-var response = await client.GetBets.BetsGetBetsByTypeV4Async(Betlist.Settled, betStatuses, "fromDate", "toDate", SortDir.Asc, 1000, 8, betids, uniqueRequestIds, betType);
+var response = await client.GetBets.BetsGetBetsByTypeV4Async(Betlist.Settled, betStatuses, "fromDate", "toDate", SortDir.Asc, 1000, 0, betids, uniqueRequestIds, betType);
 
 Console.WriteLine(response);
 ```
