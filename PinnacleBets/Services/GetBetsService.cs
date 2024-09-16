@@ -2,6 +2,8 @@
 
 using System.Net.Http.Json;
 using PinnacleBets.Http;
+using PinnacleBets.Http.Exceptions;
+using PinnacleBets.Http.Extensions;
 using PinnacleBets.Http.Serialization;
 using PinnacleBets.Models;
 
@@ -103,9 +105,9 @@ public class GetBetsService : BaseService
         var response = await _httpClient
             .SendAsync(request, cancellationToken)
             .ConfigureAwait(false);
-        response.EnsureSuccessStatusCode();
 
         return await response
+                .EnsureSuccessfulResponse()
                 .Content.ReadFromJsonAsync<GetBetsByTypeResponseV4>(
                     _jsonSerializerOptions,
                     cancellationToken

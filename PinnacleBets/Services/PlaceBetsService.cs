@@ -2,6 +2,8 @@
 
 using System.Net.Http.Json;
 using PinnacleBets.Http;
+using PinnacleBets.Http.Exceptions;
+using PinnacleBets.Http.Extensions;
 using PinnacleBets.Http.Serialization;
 using PinnacleBets.Models;
 
@@ -34,9 +36,9 @@ public class PlaceBetsService : BaseService
         var response = await _httpClient
             .SendAsync(request, cancellationToken)
             .ConfigureAwait(false);
-        response.EnsureSuccessStatusCode();
 
         return await response
+                .EnsureSuccessfulResponse()
                 .Content.ReadFromJsonAsync<PlaceStraightBetResponse>(
                     _jsonSerializerOptions,
                     cancellationToken
@@ -63,9 +65,9 @@ public class PlaceBetsService : BaseService
         var response = await _httpClient
             .SendAsync(request, cancellationToken)
             .ConfigureAwait(false);
-        response.EnsureSuccessStatusCode();
 
         return await response
+                .EnsureSuccessfulResponse()
                 .Content.ReadFromJsonAsync<PlaceParlayBetResponse>(
                     _jsonSerializerOptions,
                     cancellationToken
@@ -92,9 +94,9 @@ public class PlaceBetsService : BaseService
         var response = await _httpClient
             .SendAsync(request, cancellationToken)
             .ConfigureAwait(false);
-        response.EnsureSuccessStatusCode();
 
         return await response
+                .EnsureSuccessfulResponse()
                 .Content.ReadFromJsonAsync<PlaceTeaserBetResponse>(
                     _jsonSerializerOptions,
                     cancellationToken
@@ -121,9 +123,9 @@ public class PlaceBetsService : BaseService
         var response = await _httpClient
             .SendAsync(request, cancellationToken)
             .ConfigureAwait(false);
-        response.EnsureSuccessStatusCode();
 
         return await response
+                .EnsureSuccessfulResponse()
                 .Content.ReadFromJsonAsync<MultiBetResponseSpecialBetResponse>(
                     _jsonSerializerOptions,
                     cancellationToken

@@ -16,7 +16,7 @@ var config = new PinnacleBetsConfig
 var client = new PinnacleBetsClient(config);
 
 var betStatuses = new List<BetStatuses>() { BetStatuses.Won };
-var betids = new List<long>() { 7 };
+var betids = new List<long>() { 9 };
 var uniqueRequestIds = new List<string>() { "uniqueRequestIds" };
 var betType = new List<BetsGetBetsByTypeV4BetType>() { BetsGetBetsByTypeV4BetType.Spread };
 
@@ -27,7 +27,7 @@ var response = await client.GetBets.BetsGetBetsByTypeV4Async(
     "toDate",
     SortDir.Asc,
     1000,
-    8,
+    0,
     betids,
     uniqueRequestIds,
     betType
